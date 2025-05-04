@@ -1,13 +1,14 @@
-import Image from "next/image";
-import {handleLogout} from "@/actions/auth-action";
+import {verifyAuth} from "@/lib/auth";
+import {redirect} from "next/navigation";
 
-export default function Home() {
-  return (
-    <div>
-        <h1>test</h1>
-        <button className='cursor-pointer' onClick={handleLogout}>
-            Log out
-        </button>
-    </div>
-  );
+export default async function Home() {
+    const result = await verifyAuth();
+
+    if(!result.user) {
+        return redirect('/login')
+    }
+    else {
+        return redirect('/home');
+    }
+
 }

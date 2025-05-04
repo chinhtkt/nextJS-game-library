@@ -1,15 +1,16 @@
 'use client'
 import React, {useActionState} from 'react';
-import {handleLogin} from "@/actions/auth-action";
 import AuthFormSubmitButton from "@/components/auth-form-submit";
+import Link from "next/link";
+import {auth} from "@/actions/auth-action";
 
 
-const AuthForm = () => {
-    const [formState, formAction] = useActionState(handleLogin, {});
+const AuthForm = ({mode = 'login'}) => {
+    const [formState, formAction] = useActionState(auth.bind(null,mode), {});
     return (
         <div className="min-h-screen flex items-center justify-center bg-[url(/cyberpunk.jpg)] bg-cover">
             <div className="bg-gray-100 p-8 rounded-lg shadow-md w-full max-w-md">
-                <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Login</h2>
+                <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">{mode === 'login' ? 'Login' : 'Create your account'}</h2>
                 <form action={formAction}>
                     <div className="mb-4">
                         <label htmlFor="email" className="block text-sm font-medium text-black">
@@ -40,8 +41,12 @@ const AuthForm = () => {
                             ))}
                         </ul>
                     )}
-                    <AuthFormSubmitButton/>
+                    <AuthFormSubmitButton mode={mode}/>
                 </form>
+                <p className={'text-black text-center pt-1'}>
+                    {mode === 'login' && <Link href="/register">Create an account.</Link>}
+                    {mode === 'register' && <Link href="/login">Login with existing account.</Link>}
+                </p>
             </div>
         </div>
     );

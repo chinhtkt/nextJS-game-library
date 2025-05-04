@@ -2,7 +2,7 @@
 import React from 'react';
 import {useFormStatus} from "react-dom";
 
-const AuthFormSubmitButton = () => {
+const AuthFormSubmitButton = ({mode}) => {
     const {pending} = useFormStatus()
     return (
             <button
@@ -10,7 +10,7 @@ const AuthFormSubmitButton = () => {
                 type="submit"
                 className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition-colors cursor-pointer"
             >
-                Login
+                {mode === 'login' ? 'Login'  : 'Create Account'}
             </button>
     );
 };

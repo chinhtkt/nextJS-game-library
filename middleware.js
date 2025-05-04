@@ -1,10 +1,8 @@
-import {cookies} from "next/headers";
-import {decrypt} from "@/lib/sessions";
 import {NextResponse} from "next/server";
-import {use} from "react";
+import {cookies} from "next/headers";
 
 
-const protectedRoutes = ['/', '/games', /^\/games\/[^\/]+$/, '/add-game'];
+const protectedRoutes = ['/home', '/games', /^\/games\/[^\/]+$/, '/add-game'];
 const publicRoutes = ['/login']
 export default async function middleware (req, res) {
     const {get} = await cookies()
@@ -15,15 +13,13 @@ export default async function middleware (req, res) {
     });
     const isPublicRoute = publicRoutes.includes(path);
 
-    const cookie = get('session')?.value;
-    const session = await decrypt(cookie);
+    const cookie = get('auth_session')?.value;
 
-
-    if(isProtectedRoute && !session?.userId) {
+    if(isProtectedRoute && !cookie) {
         return NextResponse.redirect(new URL('/login', req.nextUrl))
     }
 
-    if(isPublicRoute && session?.userId) {
+    if(isPublicRoute && cookie) {
         return NextResponse.redirect(new URL('/', req.nextUrl))
     }
 

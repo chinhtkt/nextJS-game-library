@@ -1,12 +1,12 @@
 import React from 'react';
 import AuthForm from "@/components/auth-form";
 
-const SignInPage = () => {
+const RegisterPage = () => {
     return (
         <div>
-            <AuthForm mode={'login'}/>
+            <AuthForm mode={'register'}/>
         </div>
     );
 };
 
-export default SignInPage;
+export default RegisterPage;
