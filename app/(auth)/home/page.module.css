@@ -1,0 +1,23 @@
+.textShadowYellowNeon {
+    text-shadow: 0 0 10px #ffff00;
+}
+
+.textShadowNeon {
+    text-shadow: 0 0 10px #00ffff;
+}
+
+.ctaButton {
+    background-color: #ff00ff; /* Màu neon hồng cho nút */
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-shadow: 0 0 5px #ff00ff;
+    transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+    background-color: #ff69b4; /* Hồng nhạt hơn khi hover */
+    box-shadow: 0 0 15px #ff00ff; /* Hiệu ứng phát sáng */
+}

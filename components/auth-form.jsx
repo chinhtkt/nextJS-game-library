@@ -44,8 +44,8 @@ const AuthForm = ({mode = 'login'}) => {
                     <AuthFormSubmitButton mode={mode}/>
                 </form>
                 <p className={'text-black text-center pt-1'}>
-                    {mode === 'login' && <Link href="/register">Create an account.</Link>}
-                    {mode === 'register' && <Link href="/login">Login with existing account.</Link>}
+                    {mode === 'login' && <Link href={'/register'}>Create an account.</Link>}
+                    {mode === 'register' && <Link href={'/login'}>Login with existing account.</Link>}
                 </p>
             </div>
         </div>
