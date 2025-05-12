@@ -34,7 +34,7 @@ const HomePage = () => {
                     {featuredGames.map((game) => (
                         <div key={game.id} className="bg-gray-800 rounded-lg p-4">
                             <Link href={`/games/${game.id}`}>
-                            <Image fill src={game.image} alt={game.title} className="w-full h-40 object-cover rounded-md"/>
+                            <Image width={300} height={300} src={game.image} alt={game.title} className="w-full h-40 object-cover rounded-md"/>
                             </Link>
                             <h3 className="mt-2 text-xl font-semibold">{game.title}</h3>
                             <p className="text-gray-400">{game.genre}</p>
