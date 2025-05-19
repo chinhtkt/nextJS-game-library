@@ -1,5 +1,8 @@
 'use server';
 
+import {createGames} from "@/lib/games";
+import {redirect} from "next/navigation";
+
 export async function handleAddGame(prevState, formData) {
 
     let errors = [];
@@ -21,6 +24,17 @@ export async function handleAddGame(prevState, formData) {
     if (errors.length > 0) {
         return {errors};
     }
+
+    await createGames({
+        title: submittedData.title,
+        genre: submittedData.genre,
+        description: submittedData.description,
+        image: submittedData.image,
+        releaseDate: submittedData.releaseDate,
+        rating: submittedData.rating,
+        user_id: 1,
+    })
+    redirect('/home')
 
 
 

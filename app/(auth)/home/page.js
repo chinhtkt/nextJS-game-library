@@ -17,7 +17,7 @@ const HomePage = () => {
                         Hub.</h1>
                 </div>
                 <div className='p-5 text-[#ffff00]'>
-                    <h2 className={`text-xl ${classes.textShadowYellowNeon}`}>
+                    <h2 className={`text-xl ${classes.textShadowYellowNeon} text-center`}>
                         Tìm kiếm và khám phá hàng ngàn tựa game từ mọi thể loại, từ hành động, phiêu lưu đến chiến
                         thuật. Danh sách game lớn nhất dành cho bạn!
                     </h2>
