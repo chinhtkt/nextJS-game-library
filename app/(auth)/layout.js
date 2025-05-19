@@ -34,7 +34,7 @@ const AuthLayout = ({children}) => {
                     </form>
                 </div>
             </header>
-            <div className='size-full bg-[url(/cyberpunk.jpg)] bg-cover relative overflow-hidden'>
+            <div className='size-full bg-black bg-cover relative overflow-hidden'>
                 <div className='absolute w-full h-full bg-[rgba(0,0,0,0.8)]'>
                         {children}
                 </div>

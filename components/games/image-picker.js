@@ -3,7 +3,7 @@ import classes from './image-picker.module.css'
 import {useRef, useState} from "react";
 import Image from "next/image";
 
-export default function ImagePicker({name}) {
+export default function ImagePicker({label, name}) {
     const [pickedImage, setPickedImage] = useState(null)
     const imageInput = useRef();
 
@@ -26,6 +26,7 @@ export default function ImagePicker({name}) {
     }
 
     return <div className={classes.picker}>
+        <label htmlFor={name}>{label}</label>
         <div className={classes.controls}>
             <div className={classes.preview}>
                 {!pickedImage ? <p>No image picked yet.</p> :
@@ -37,7 +38,6 @@ export default function ImagePicker({name}) {
                    accept='image/png, image/jpeg'
                    name={name} ref={imageInput}
                    onChange={handleImageChange}
-                   required
             />
             <button className={classes.button} type="button" onClick={handlePickClick}>Chọn file để upload</button>
         </div>

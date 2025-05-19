@@ -15,7 +15,7 @@ const AddGamePage = () => {
                 <form action={formAction}>
                     <div>
                         <label htmlFor="title" className={styles.label}>
-                            Tên Game
+                            Title Game
                         </label>
                         <input
                             type="text"
@@ -27,7 +27,7 @@ const AddGamePage = () => {
                     </div>
                     <div>
                         <label htmlFor="genre" className={styles.label}>
-                            Thể Loại
+                            Genre Game
                         </label>
                         <input
                             type="text"
@@ -39,7 +39,7 @@ const AddGamePage = () => {
                     </div>
                     <div>
                         <label htmlFor="description" className={styles.label}>
-                            Mô Tả
+                            Description
                         </label>
                         <textarea
                             id="description"
@@ -50,14 +50,11 @@ const AddGamePage = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="imageUrl" className={styles.label}>
-                            URL Hình Ảnh
-                        </label>
-                        <ImagePicker name='image'/>
+                        <ImagePicker label='Image' name='image'/>
                     </div>
                     <div>
                         <label htmlFor="releaseDate" className={styles.label}>
-                            Ngày Phát Hành
+                            Release Date
                         </label>
                         <input
                             type="date"
@@ -68,7 +65,7 @@ const AddGamePage = () => {
                     </div>
                     <div>
                         <label htmlFor="rating" className={styles.label}>
-                            Điểm Đánh Giá
+                            Rating
                         </label>
                         <input
                             type="number"
@@ -84,6 +81,9 @@ const AddGamePage = () => {
                     <button type="submit" className={styles.submitButton}>
                         Thêm Game
                     </button>
+                    {formState?.errors && <ul className={styles.error}>
+                        {formState?.errors.map((error) => <li key={error}>{error}</li>)}
+                    </ul>}
                 </form>
             </div>
         </div>

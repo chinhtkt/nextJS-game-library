@@ -8,7 +8,7 @@ import {auth} from "@/actions/auth-action";
 const AuthForm = ({mode = 'login'}) => {
     const [formState, formAction] = useActionState(auth.bind(null,mode), {});
     return (
-        <div className="min-h-screen flex items-center justify-center bg-[url(/cyberpunk.jpg)] bg-cover">
+        <div className="min-h-screen flex items-center justify-center bg-black bg-cover">
             <div className="bg-gray-100 p-8 rounded-lg shadow-md w-full max-w-md">
                 <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">{mode === 'login' ? 'Login' : 'Create your account'}</h2>
                 <form action={formAction}>
