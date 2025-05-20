@@ -9,7 +9,7 @@ const AddGamePage = () => {
     return (
         <div className={styles.container}>
             <h1 className="text-3xl font-bold text-center mb-6 text-[#ffff00] text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00;">
-                Thêm Game Mới
+                Add new Game
             </h1>
             <div className={styles.formContainer}>
                 <form action={formAction}>

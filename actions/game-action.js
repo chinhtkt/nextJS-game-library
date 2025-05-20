@@ -2,6 +2,7 @@
 
 import {createGames} from "@/lib/games";
 import {redirect} from "next/navigation";
+import {verifyAuth} from "@/lib/auth";
 
 export async function handleAddGame(prevState, formData) {
 
@@ -19,11 +20,11 @@ export async function handleAddGame(prevState, formData) {
         key === 'image' && value.size === 0 ? errors.push(`Yêu cầu chọn ảnh`) : submittedData[key] = value
     }
 
-    console.log(submittedData, 'submittedData')
-
     if (errors.length > 0) {
         return {errors};
     }
+
+    const currentUser = await verifyAuth()
 
     await createGames({
         title: submittedData.title,
@@ -32,9 +33,9 @@ export async function handleAddGame(prevState, formData) {
         image: submittedData.image,
         releaseDate: submittedData.releaseDate,
         rating: submittedData.rating,
-        user_id: 1,
+        user_id: currentUser.user.id,
     })
-    redirect('/home')
+    redirect('/games')
 
 
 

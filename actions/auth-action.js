@@ -74,11 +74,17 @@ export async function handleLogin(prevState, formData) {
     }
 
     await createAuthSession(existingUser.id);
-    redirect('/home')
+    redirect('/')
 
 }
 
-export async function handleLogout() {
+export async function handleAuthUser(status) {
+    console.log(status, 'status')
+    if(!status) {
+        return redirect('/login');
+    }
     await destroySession();
-    redirect('/login');
+    return redirect('/');
+
+
 }
