@@ -1,12 +1,11 @@
 import Link from "next/link";
-import {handleAuthUser, handleLogout} from "@/actions/auth-action";
+import {handleAuthUser} from "@/actions/auth-action";
 import {verifyAuth} from "@/lib/auth";
 import classes from './page.module.css'
 
 const NavBar = async () => {
     const isLoggedIn = await verifyAuth()
-    return (
-        <header className="bg-gray-900 text-white p-4 shadow-lg border-b border-purple-500">
+    return (<header className="bg-gray-900 text-white p-4 shadow-lg border-b border-purple-500">
             <div className="container mx-auto flex justify-between items-center">
                 <nav className="flex gap-8">
                     <Link className="hover:text-purple-400 transition" href="/">
@@ -15,9 +14,9 @@ const NavBar = async () => {
                     <Link className="hover:text-purple-400 transition" href="/games">
                         <h1>Games</h1>
                     </Link>
-                    <Link className="hover:text-purple-400 transition" href="/add-game">
+                    {isLoggedIn.user?.username && <Link className="hover:text-purple-400 transition" href="/add-game">
                         <h1>Add Game</h1>
-                    </Link>
+                    </Link>}
                 </nav>
 
                 <div className={'flex gap-8 items-center'}>
@@ -34,8 +33,7 @@ const NavBar = async () => {
                     </form>
                 </div>
             </div>
-        </header>
-    );
+        </header>);
 };
 
 export default NavBar;

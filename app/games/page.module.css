@@ -1,0 +1,75 @@
+.container {
+    background-color: #1a1a1a;
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #ffffff;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 2px #ffd700, 0 0 2px #ffd700;
+}
+
+.gameGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gameCard {
+    background: rgba(26, 26, 26, 0.9);
+    border: 2px solid #00ffff;
+    border-radius: 10px;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gameCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #00ffff;
+}
+
+.gameImage {
+    cursor: pointer;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.gameTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    color: #ffff00;
+}
+
+.gameGenre {
+    font-size: 0.9rem;
+    color: #ff00ff;
+}
+
+.viewButton {
+    background-color: #ff00ff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.viewButton:hover {
+    background-color: #ff69b4;
+    box-shadow: 0 0 15px #ff00ff;
+}
