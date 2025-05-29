@@ -1,0 +1,81 @@
+.container {
+    background-color: #1a1a1a;
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #ffffff;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffd700; /* Vàng dịu hơn để đỡ chói */
+    text-shadow: 0 0 2px #ffd700, 0 0 2px #ffd700;
+}
+
+.gameDetail {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(26, 26, 26, 0.9);
+    border: 2px solid #00ffff;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.gameImage {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid #ff00ff;
+}
+
+.gameInfo {
+    flex: 1;
+}
+
+.gameInfo h2 {
+    font-size: 1.8rem;
+    color: #ffff00;
+    margin-bottom: 10px;
+}
+
+.gameInfo p {
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.gameInfo .label {
+    font-weight: bold;
+    color: #00ffff;
+}
+
+.backButton {
+    background-color: #ff00ff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin-top: 20px;
+    width: fit-content;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.backButton:hover {
+    background-color: #ff69b4;
+    box-shadow: 0 0 15px #ff00ff;
+}

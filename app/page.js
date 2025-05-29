@@ -2,13 +2,10 @@ import classes from './page.module.css'
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
+import {getMostRatedGames} from "@/lib/games";
 
 export default async function Home() {
-    const featuredGames = [
-        { id: 1, title: 'Elden Ring', genre: 'RPG', rating: '9.5/10', image: '/elden-ring.jpg' },
-        { id: 2, title: 'Stardew Valley', genre: 'Simulation', rating: '9.0/10', image: '/stardew-valley.jpg' },
-        { id: 3, title: 'DOOM Eternal', genre: 'Action', rating: '8.8/10', image: '/doom-eternal.jpg' },
-    ];
+    const featuredGames = await getMostRatedGames();
     return (
         <div className={'h-full w-full'}>
             <div className={'flex flex-col items-center justify-center h-[40%] text-blue-600 dark:text-sky-400'}>
@@ -34,11 +31,12 @@ export default async function Home() {
                     {featuredGames.map((game) => (
                         <div key={game.id} className="bg-gray-800 rounded-lg p-4">
                             <Link href={`/games/${game.id}`}>
-                                <Image width={300} height={300} src={game.image} alt={game.title} className="w-full h-40 object-cover rounded-md"/>
+                                <Image width={300} height={300} src={game.image} alt={game.title}
+                                       className="w-full h-40 object-cover rounded-md"/>
                             </Link>
                             <h3 className="mt-2 text-xl font-semibold">{game.title}</h3>
                             <p className="text-gray-400">{game.genre}</p>
-                            <p className="text-[#ff00ff]">{game.rating}</p>
+                            <p className="text-[#ff00ff]">{game.rating} Điểm đánh giá </p>
                             <Link href={`/games/${game.id}`} className="text-[#00ffff] mt-2 inline-block">
                                 Xem Chi Tiết
                             </Link>
